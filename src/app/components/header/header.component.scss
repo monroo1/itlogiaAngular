@@ -1,0 +1,34 @@
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 25px 0;
+
+  & .container {
+    display: flex;
+    align-items: center;
+
+    & .logo {
+      vertical-align: bottom;
+    }
+
+    & .menu {
+      margin-left: 244px;
+
+      & ul {
+        list-style: none;
+        display: flex;
+        gap: 115px;
+      }
+
+      & a {
+        font-size: 15px;
+        color: #030305;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+          border-bottom: 2px solid black;
+        }
+      }
+    }
+  }
+}

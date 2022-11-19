@@ -1,0 +1,13 @@
+<section class="car" id="cars">
+  <div class="container">
+    <h2 class="sub-title">Наш автопарк</h2>
+    <div class="car-items">
+      <app-car
+        *ngFor="let car of carsData"
+        [car]="car"
+        [price]="price"
+        [scroll]="scroll"
+      ></app-car>
+    </div>
+  </div>
+</section>

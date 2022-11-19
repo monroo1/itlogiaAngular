@@ -1,0 +1,51 @@
+<section class="price" id="price">
+  <div class="container">
+    <h2 class="sub-title">Узнать цену и забронировать</h2>
+    <div class="price-text">
+      Заполните данные, и мы перезвоним вам для уточнения всех деталей
+      бронирования
+    </div>
+    <form class="price-form" [formGroup]="priceForm">
+      {{ carName }}
+      <input
+        type="text"
+        class="price-input"
+        id="name"
+        placeholder="Ваше имя"
+        formControlName="name"
+      />
+
+      <input
+        type="text"
+        class="price-input"
+        id="phone"
+        placeholder="Ваш телефон"
+        formControlName="phone"
+      />
+
+      <input
+        type="text"
+        class="price-input"
+        id="car"
+        placeholder="Автомобиль, который вас интересует"
+        formControlName="car"
+      />
+
+      <button
+        class="button"
+        id="price-action"
+        type="button"
+        (click)="onSubmit()"
+        [disabled]="!priceForm.valid"
+      >
+        Узнать цену
+      </button>
+    </form>
+    <img
+      src="../../../assets/images/rolls.png"
+      alt="Rolls"
+      class="price-image"
+      [ngStyle]="trans"
+    />
+  </div>
+</section>

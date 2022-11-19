@@ -1,0 +1,28 @@
+<div class="car-item">
+  <div class="car-item-image">
+    <img src="../../../assets/images/cars/{{ car.image }}" alt="Image 5" />
+  </div>
+  <div class="car-item-title">{{ car.name }}</div>
+  <div class="car-item-info">
+    <div class="car-item-point">
+      <img src="../../../assets/images/gear.png" alt="Gear" />
+      <div>Привод</div>
+      <div>{{ car.gear }}</div>
+    </div>
+    <div class="car-item-point">
+      <img src="../../../assets/images/wheel.png" alt="Wheel" />
+      <div>Двигатель</div>
+      <div>{{ car.engine }} л.с.</div>
+    </div>
+    <div class="car-item-point">
+      <img src="../../../assets/images/belt.png" alt="Belt" />
+      <div>Кол-во мест</div>
+      <div>{{ car.places }}</div>
+    </div>
+  </div>
+  <div class="car-item-action">
+    <button class="button car-button" (click)="goScroll(price, car.name)">
+      Забронировать
+    </button>
+  </div>
+</div>
