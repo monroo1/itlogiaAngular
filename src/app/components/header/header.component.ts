@@ -13,9 +13,9 @@ export class HeaderComponent {
   @Input()
   price!: HTMLElement;
   @Input()
-  scroll!: (args: any) => void;
+  scroll!: ({ target }: any) => void;
 
-  goScroll(someArgs: HTMLElement) {
-    this.scroll(someArgs);
+  goScroll(target: HTMLElement) {
+    this.scroll({ target });
   }
 }

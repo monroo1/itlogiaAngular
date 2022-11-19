@@ -1,4 +1,10 @@
-import { Component, Input, HostListener } from '@angular/core';
+import {
+  Component,
+  Input,
+  HostListener,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +12,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './price.component.html',
   styleUrls: ['./price.component.scss'],
 })
-export class PriceComponent {
+export class PriceComponent implements OnChanges {
   @Input() carName: string = '';
 
   priceForm = this.fb.group({
@@ -16,6 +22,10 @@ export class PriceComponent {
   });
 
   constructor(private fb: FormBuilder) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.priceForm.patchValue({ car: this.carName });
+  }
 
   onSubmit() {
     if (this.priceForm.valid) {

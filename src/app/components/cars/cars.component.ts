@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cars',
@@ -8,8 +8,10 @@ import { Component, Input } from '@angular/core';
 export class CarsComponent {
   @Input()
   price!: HTMLElement;
-  @Input()
-  scroll!: (args: any, car: any) => void;
+  @Output() scroll = new EventEmitter<any>();
+  goScroll({ target, car }: any) {
+    this.scroll.emit({ target, car });
+  }
 
   carsData = [
     {

@@ -6,7 +6,7 @@
         *ngFor="let car of carsData"
         [car]="car"
         [price]="price"
-        [scroll]="scroll"
+        (scroll)="goScroll($event)"
       ></app-car>
     </div>
   </div>

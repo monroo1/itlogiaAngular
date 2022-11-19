@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-car',
@@ -9,10 +9,9 @@ export class CarComponent {
   @Input() car: any;
   @Input()
   price!: HTMLElement;
-  @Input()
-  scroll!: (args: any, car: any) => void;
+  @Output() scroll = new EventEmitter<any>();
 
-  goScroll(someArgs: HTMLElement, car: any) {
-    this.scroll(someArgs, car);
+  goScroll(target: HTMLElement, car: any) {
+    this.scroll.emit({ target, car });
   }
 }

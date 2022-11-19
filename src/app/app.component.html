@@ -6,7 +6,7 @@
   <app-main [cars]="cars" [scroll]="goScroll"></app-main>
 </div>
 <div #cars>
-  <app-cars [price]="price" [scroll]="goScroll"></app-cars>
+  <app-cars [price]="price" (scroll)="goScroll($event)"></app-cars>
 </div>
 <div #price>
   <app-price [carName]="carName"></app-price>

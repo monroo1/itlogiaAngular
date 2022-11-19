@@ -9,10 +9,9 @@ export class MainComponent {
   @Input()
   cars!: HTMLElement;
   @Input()
-  scroll!: (args: any) => void;
-
-  goScroll(someArgs: HTMLElement) {
-    this.scroll(someArgs);
+  scroll!: ({ target }: any) => void;
+  goScroll(target: HTMLElement) {
+    this.scroll({ target });
   }
 
   bgPos: any;

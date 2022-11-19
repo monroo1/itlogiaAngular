@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { PriceComponent } from './components/price/price.component';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Аренда автомобилей';
-  carName: string = '111222';
+  carName: string = '';
 
-  goScroll(target: HTMLElement, car?: any) {
+  goScroll({ target, car }: any) {
     target.scrollIntoView({ behavior: 'smooth' });
     if (car) {
       this.carName = car;
-      console.log(car);
-      console.log(this);
     }
   }
 }
