@@ -20,7 +20,13 @@ export class CarsComponent {
 
   ngOnInit() {
     this.appService
-      .getData()
+      .getData(this.category)
       .subscribe((carsData) => (this.carsData = carsData));
+  }
+
+  category: string = 'sport';
+  toggleCategory(category: string) {
+    this.category = category;
+    this.ngOnInit();
   }
 }
