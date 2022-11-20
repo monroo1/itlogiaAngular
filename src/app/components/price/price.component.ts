@@ -5,6 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { AppService } from '../../app.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -21,7 +22,7 @@ export class PriceComponent implements OnChanges {
     car: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private appService: AppService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     this.priceForm.patchValue({ car: this.carName });
@@ -29,8 +30,15 @@ export class PriceComponent implements OnChanges {
 
   onSubmit() {
     if (this.priceForm.valid) {
-      alert('Спасибо за заявку, мы свяжемся с вами в ближайшее время!');
-      this.priceForm.reset();
+      this.appService.sendQuery(this.priceForm.value).subscribe({
+        next: (response: any) => {
+          alert(response.message);
+          this.priceForm.reset();
+        },
+        error: (response) => {
+          alert(response.error.message);
+        },
+      });
     }
   }
 
